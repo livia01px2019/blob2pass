@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/livia/Documents/roborock/blob2pass/blob2pass.hh
+
+/home/livia/Documents/roborock/blob2pass/execute.cc
+stdio.h
+-
+ctime
+-
+stdlib.h
+-
+blob2pass.hh
+/home/livia/Documents/roborock/blob2pass/blob2pass.hh
+execute.hh
+/home/livia/Documents/roborock/blob2pass/execute.hh
+
+/home/livia/Documents/roborock/blob2pass/execute.hh
+
