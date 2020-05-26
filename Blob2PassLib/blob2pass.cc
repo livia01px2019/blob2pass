@@ -18,7 +18,7 @@ int** blob2pass(int** img, int w, int h) {
     for (int i = 0; i < h; i++) {
         for (int j = 0; j < w; j++) {
             if(img[i][j] == 1) {
-                neighborsStruct neighbors = findNeighbors(img, i, j, w, h);
+                neighborsStruct neighbors = findNeighbors(labelmap, i, j, w, h);
                 int lowest = __INT_MAX__;
 
                 int nonzeroNeighbors[4];
@@ -27,7 +27,6 @@ int** blob2pass(int** img, int w, int h) {
                 // finding lowest nonzero label out of neighbors
                 for (int k = 0; k < 4; k++) {
                     int currLabel = neighbors.arr[k];
-                    printf("current label is: %d", currLabel);
                     if (currLabel != 0) {
                         // adding current label to nonzero labels
                         nonzeroNeighbors[nonzeroNeighborCnt] = currLabel;
@@ -62,8 +61,8 @@ int** blob2pass(int** img, int w, int h) {
             }
         }
     }
-
     delete[] uf;
+    return labelmap;
 }
 
 neighborsStruct findNeighbors(int** img, int x, int y, int w, int h) {
@@ -94,7 +93,7 @@ neighborsStruct findNeighbors(int** img, int x, int y, int w, int h) {
         if (right) {
             ns.arr[2] = 0;
         } else {
-            ns.arr[2] = img[x+1][y+1];
+            ns.arr[2] = img[x-1][y+1];
         }
     }
     return ns;
@@ -107,8 +106,10 @@ int root(int x) {
         r = uf[r];
     }
 
-    while(uf[x] > 0) {
+    while(uf[x]>0){
+        int tmp = uf[x];
         uf[x] = r;
+        x = tmp;
     }
 
     return r;
@@ -118,10 +119,14 @@ void join(int x, int y) {
     x = root(x);
     y = root(y);
 
-    if (x < y) {
-        uf[y] = x;
-    } else {
-        uf[x] = y;
+    if (x != y) {
+        if (x < y) {
+            uf[x] += uf[y];
+            uf[y] = x;
+        } else {
+            uf[y] += uf[x];
+            uf[x] = y;
+        }
     }
 }
 
@@ -130,4 +135,13 @@ void free_labelmap() {
         delete[] labelmap[i];
     }
     delete[] labelmap;
+}
+
+void printImg(int** img, int w, int h) {
+    for (int i = 0; i < h; i++){
+        for (int j = 0; j < w; j++){
+            printf("%d", img[i][j]);
+        }
+        printf("\n");
+    }
 }

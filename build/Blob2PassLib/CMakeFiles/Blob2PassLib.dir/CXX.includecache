@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 /home/livia/Documents/roborock/blob2pass/Blob2PassLib/blob2pass.cc
+stdio.h
+-
 blob2pass.hh
 /home/livia/Documents/roborock/blob2pass/Blob2PassLib/blob2pass.hh
 
