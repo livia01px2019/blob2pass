@@ -15,6 +15,10 @@ ctime
 -
 stdlib.h
 -
+time.h
+-
+unistd.h
+-
 blob2pass.hh
 /home/livia/Documents/roborock/blob2pass/blob2pass.hh
 execute.hh

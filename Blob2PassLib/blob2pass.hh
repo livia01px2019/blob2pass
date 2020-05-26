@@ -4,6 +4,7 @@
 struct neighborsStruct {
     int arr[4];
 };
+struct timespec ts;
 
 int** blob2pass(int** img, int w, int h);
 void free_labelmap();

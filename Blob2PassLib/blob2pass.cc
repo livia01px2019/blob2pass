@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <string.h>
+#include <time.h>
+#include <unistd.h>
 #include "blob2pass.hh"
 
 int* uf = 0;
@@ -9,9 +12,13 @@ int** blob2pass(int** img, int w, int h) {
     labelmap = new int*[h];
     for (int i = 0; i < h; i ++) {
         labelmap[i] = new int[w];
+        memset(labelmap[i],0,w*sizeof(int));
     }
     height = h;
-    uf = new int[w * h];
+    uf = new int[10000];
+
+    int time = clock_gettime(CLOCK_MONOTONIC,&ts);
+    printf("before pass 1: %ld, %ld \n", ts.tv_sec, ts.tv_nsec);
 
     // Pass 1
     int labelmax = 0;
@@ -52,6 +59,8 @@ int** blob2pass(int** img, int w, int h) {
             }
         }
     }
+    time = clock_gettime(CLOCK_MONOTONIC,&ts);
+    printf("before pass 2: %ld, %ld \n", ts.tv_sec, ts.tv_nsec);
 
     // Pass 2
     for (int i = 0; i < h; i++) {
@@ -65,6 +74,7 @@ int** blob2pass(int** img, int w, int h) {
     return labelmap;
 }
 
+// return NW, N, NE, and W values in a neighborsStruct
 neighborsStruct findNeighbors(int** img, int x, int y, int w, int h) {
     bool top = (x == 0);
     bool left = (y == 0); 
@@ -99,6 +109,9 @@ neighborsStruct findNeighbors(int** img, int x, int y, int w, int h) {
     return ns;
 }
 
+// UNION FIND
+
+// find the root
 int root(int x) {
     int r = x;
     
@@ -115,6 +128,7 @@ int root(int x) {
     return r;
 }
 
+// join two numbers
 void join(int x, int y) {
     x = root(x);
     y = root(y);
