@@ -90,6 +90,7 @@ Blob2Pass_EXTERNAL_OBJECTS =
 
 Blob2Pass: CMakeFiles/Blob2Pass.dir/execute.cc.o
 Blob2Pass: CMakeFiles/Blob2Pass.dir/build.make
+Blob2Pass: Blob2PassLib/libBlob2PassLib.so
 Blob2Pass: CMakeFiles/Blob2Pass.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/livia/Documents/roborock/blob2pass/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Blob2Pass"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Blob2Pass.dir/link.txt --verbose=$(VERBOSE)

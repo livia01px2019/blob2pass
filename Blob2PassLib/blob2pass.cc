@@ -1,8 +1,5 @@
+#include <stdio.h>
 #include "blob2pass.hh"
-
-struct neighborsStruct {
-    int arr[4];
-};
 
 int* uf = 0;
 int** labelmap = 0;
@@ -16,23 +13,37 @@ int** blob2pass(int** img, int w, int h) {
     height = h;
     uf = new int[w * h];
 
+    // Pass 1
     int labelmax = 0;
     for (int i = 0; i < h; i++) {
         for (int j = 0; j < w; j++) {
             if(img[i][j] == 1) {
                 neighborsStruct neighbors = findNeighbors(img, i, j, w, h);
                 int lowest = __INT_MAX__;
+
+                int nonzeroNeighbors[4];
+                int nonzeroNeighborCnt = 0;
+
+                // finding lowest nonzero label out of neighbors
                 for (int k = 0; k < 4; k++) {
                     int currLabel = neighbors.arr[k];
+                    printf("current label is: %d", currLabel);
                     if (currLabel != 0) {
-                        if (k != 0) {
-                            join(k-1, k);
-                        }
-                        if (neighbors.arr[k] > lowest) {
-                            lowest = neighbors.arr[k];
+                        // adding current label to nonzero labels
+                        nonzeroNeighbors[nonzeroNeighborCnt] = currLabel;
+                        nonzeroNeighborCnt ++;
+                        if (currLabel < lowest) {
+                            lowest = currLabel;
                         }
                     }
                 }
+
+                // Joining equivalent labels
+                for (int k = 0; k < nonzeroNeighborCnt - 1; k++) {
+                    join(nonzeroNeighbors[k], nonzeroNeighbors[k+1]);
+                }
+
+                // assigning current label
                 if (lowest == __INT_MAX__) {
                     labelmax ++;
                     labelmap[i][j] = labelmax;
@@ -43,6 +54,7 @@ int** blob2pass(int** img, int w, int h) {
         }
     }
 
+    // Pass 2
     for (int i = 0; i < h; i++) {
         for (int j = 0; j < w; j++) {
             if(labelmap[i][j] != 0) {
@@ -54,7 +66,7 @@ int** blob2pass(int** img, int w, int h) {
     delete[] uf;
 }
 
-neighborsStruct findNeighbors(const int** img, int x, int y, int w, int h) {
+neighborsStruct findNeighbors(int** img, int x, int y, int w, int h) {
     bool top = (x == 0);
     bool left = (y == 0); 
     bool right = (y == (w-1));
@@ -91,11 +103,11 @@ neighborsStruct findNeighbors(const int** img, int x, int y, int w, int h) {
 int root(int x) {
     int r = x;
     
-    while(uf[r] >= 0) {
+    while(uf[r] > 0) {
         r = uf[r];
     }
 
-    while(uf[x] >= 0) {
+    while(uf[x] > 0) {
         uf[x] = r;
     }
 

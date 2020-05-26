@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/livia/Documents/roborock/blob2pass/build/CMakeFiles /home/livia/Documents/roborock/blob2pass/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/livia/Documents/roborock/blob2pass/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/livia/Documents/roborock/blob2pass/build/CMakeFiles /home/livia/Documents/roborock/blob2pass/build/Blob2PassLib/CMakeFiles/progress.marks
+	cd /home/livia/Documents/roborock/blob2pass/build && $(MAKE) -f CMakeFiles/Makefile2 Blob2PassLib/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/livia/Documents/roborock/blob2pass/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/livia/Documents/roborock/blob2pass/build && $(MAKE) -f CMakeFiles/Makefile2 Blob2PassLib/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,71 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/livia/Documents/roborock/blob2pass/build && $(MAKE) -f CMakeFiles/Makefile2 Blob2PassLib/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/livia/Documents/roborock/blob2pass/build && $(MAKE) -f CMakeFiles/Makefile2 Blob2PassLib/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/livia/Documents/roborock/blob2pass/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named Blob2Pass
+# Convenience name for target.
+Blob2PassLib/CMakeFiles/Blob2PassLib.dir/rule:
+	cd /home/livia/Documents/roborock/blob2pass/build && $(MAKE) -f CMakeFiles/Makefile2 Blob2PassLib/CMakeFiles/Blob2PassLib.dir/rule
+.PHONY : Blob2PassLib/CMakeFiles/Blob2PassLib.dir/rule
 
-# Build rule for target.
-Blob2Pass: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Blob2Pass
-.PHONY : Blob2Pass
+# Convenience name for target.
+Blob2PassLib: Blob2PassLib/CMakeFiles/Blob2PassLib.dir/rule
 
-# fast build rule for target.
-Blob2Pass/fast:
-	$(MAKE) -f CMakeFiles/Blob2Pass.dir/build.make CMakeFiles/Blob2Pass.dir/build
-.PHONY : Blob2Pass/fast
-
-#=============================================================================
-# Target rules for targets named Blob2PassLib
-
-# Build rule for target.
-Blob2PassLib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Blob2PassLib
 .PHONY : Blob2PassLib
 
 # fast build rule for target.
 Blob2PassLib/fast:
-	$(MAKE) -f Blob2PassLib/CMakeFiles/Blob2PassLib.dir/build.make Blob2PassLib/CMakeFiles/Blob2PassLib.dir/build
+	cd /home/livia/Documents/roborock/blob2pass/build && $(MAKE) -f Blob2PassLib/CMakeFiles/Blob2PassLib.dir/build.make Blob2PassLib/CMakeFiles/Blob2PassLib.dir/build
 .PHONY : Blob2PassLib/fast
 
-execute.o: execute.cc.o
+blob2pass.o: blob2pass.cc.o
 
-.PHONY : execute.o
+.PHONY : blob2pass.o
 
 # target to build an object file
-execute.cc.o:
-	$(MAKE) -f CMakeFiles/Blob2Pass.dir/build.make CMakeFiles/Blob2Pass.dir/execute.cc.o
-.PHONY : execute.cc.o
+blob2pass.cc.o:
+	cd /home/livia/Documents/roborock/blob2pass/build && $(MAKE) -f Blob2PassLib/CMakeFiles/Blob2PassLib.dir/build.make Blob2PassLib/CMakeFiles/Blob2PassLib.dir/blob2pass.cc.o
+.PHONY : blob2pass.cc.o
 
-execute.i: execute.cc.i
+blob2pass.i: blob2pass.cc.i
 
-.PHONY : execute.i
+.PHONY : blob2pass.i
 
 # target to preprocess a source file
-execute.cc.i:
-	$(MAKE) -f CMakeFiles/Blob2Pass.dir/build.make CMakeFiles/Blob2Pass.dir/execute.cc.i
-.PHONY : execute.cc.i
+blob2pass.cc.i:
+	cd /home/livia/Documents/roborock/blob2pass/build && $(MAKE) -f Blob2PassLib/CMakeFiles/Blob2PassLib.dir/build.make Blob2PassLib/CMakeFiles/Blob2PassLib.dir/blob2pass.cc.i
+.PHONY : blob2pass.cc.i
 
-execute.s: execute.cc.s
+blob2pass.s: blob2pass.cc.s
 
-.PHONY : execute.s
+.PHONY : blob2pass.s
 
 # target to generate assembly for a file
-execute.cc.s:
-	$(MAKE) -f CMakeFiles/Blob2Pass.dir/build.make CMakeFiles/Blob2Pass.dir/execute.cc.s
-.PHONY : execute.cc.s
+blob2pass.cc.s:
+	cd /home/livia/Documents/roborock/blob2pass/build && $(MAKE) -f Blob2PassLib/CMakeFiles/Blob2PassLib.dir/build.make Blob2PassLib/CMakeFiles/Blob2PassLib.dir/blob2pass.cc.s
+.PHONY : blob2pass.cc.s
 
 # Help Target
 help:
@@ -171,11 +160,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Blob2Pass"
 	@echo "... Blob2PassLib"
-	@echo "... execute.o"
-	@echo "... execute.i"
-	@echo "... execute.s"
+	@echo "... blob2pass.o"
+	@echo "... blob2pass.i"
+	@echo "... blob2pass.s"
 .PHONY : help
 
 
@@ -187,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/livia/Documents/roborock/blob2pass/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

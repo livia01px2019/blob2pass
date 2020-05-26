@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/livia/Documents/roborock/blob2pass/build
 # Target rules for target CMakeFiles/Blob2Pass.dir
 
 # All Build rule for target.
-CMakeFiles/Blob2Pass.dir/all:
+CMakeFiles/Blob2Pass.dir/all: Blob2PassLib/CMakeFiles/Blob2PassLib.dir/all
 	$(MAKE) -f CMakeFiles/Blob2Pass.dir/build.make CMakeFiles/Blob2Pass.dir/depend
 	$(MAKE) -f CMakeFiles/Blob2Pass.dir/build.make CMakeFiles/Blob2Pass.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/livia/Documents/roborock/blob2pass/build/CMakeFiles --progress-num=1,2 "Built target Blob2Pass"
@@ -76,7 +76,7 @@ all: CMakeFiles/Blob2Pass.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Blob2Pass.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/livia/Documents/roborock/blob2pass/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/livia/Documents/roborock/blob2pass/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Blob2Pass.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/livia/Documents/roborock/blob2pass/build/CMakeFiles 0
 .PHONY : CMakeFiles/Blob2Pass.dir/rule
@@ -93,6 +93,61 @@ CMakeFiles/Blob2Pass.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/Blob2Pass.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory Blob2PassLib
+
+# Convenience name for "all" pass in the directory.
+Blob2PassLib/all: Blob2PassLib/CMakeFiles/Blob2PassLib.dir/all
+
+.PHONY : Blob2PassLib/all
+
+# Convenience name for "clean" pass in the directory.
+Blob2PassLib/clean: Blob2PassLib/CMakeFiles/Blob2PassLib.dir/clean
+
+.PHONY : Blob2PassLib/clean
+
+# Convenience name for "preinstall" pass in the directory.
+Blob2PassLib/preinstall:
+
+.PHONY : Blob2PassLib/preinstall
+
+#=============================================================================
+# Target rules for target Blob2PassLib/CMakeFiles/Blob2PassLib.dir
+
+# All Build rule for target.
+Blob2PassLib/CMakeFiles/Blob2PassLib.dir/all:
+	$(MAKE) -f Blob2PassLib/CMakeFiles/Blob2PassLib.dir/build.make Blob2PassLib/CMakeFiles/Blob2PassLib.dir/depend
+	$(MAKE) -f Blob2PassLib/CMakeFiles/Blob2PassLib.dir/build.make Blob2PassLib/CMakeFiles/Blob2PassLib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/livia/Documents/roborock/blob2pass/build/CMakeFiles --progress-num=3,4 "Built target Blob2PassLib"
+.PHONY : Blob2PassLib/CMakeFiles/Blob2PassLib.dir/all
+
+# Include target in all.
+all: Blob2PassLib/CMakeFiles/Blob2PassLib.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+Blob2PassLib/CMakeFiles/Blob2PassLib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/livia/Documents/roborock/blob2pass/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 Blob2PassLib/CMakeFiles/Blob2PassLib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/livia/Documents/roborock/blob2pass/build/CMakeFiles 0
+.PHONY : Blob2PassLib/CMakeFiles/Blob2PassLib.dir/rule
+
+# Convenience name for target.
+Blob2PassLib: Blob2PassLib/CMakeFiles/Blob2PassLib.dir/rule
+
+.PHONY : Blob2PassLib
+
+# clean rule for target.
+Blob2PassLib/CMakeFiles/Blob2PassLib.dir/clean:
+	$(MAKE) -f Blob2PassLib/CMakeFiles/Blob2PassLib.dir/build.make Blob2PassLib/CMakeFiles/Blob2PassLib.dir/clean
+.PHONY : Blob2PassLib/CMakeFiles/Blob2PassLib.dir/clean
+
+# clean rule for target.
+clean: Blob2PassLib/CMakeFiles/Blob2PassLib.dir/clean
 
 .PHONY : clean
 

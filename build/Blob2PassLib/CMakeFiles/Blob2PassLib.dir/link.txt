@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -g  -shared -Wl,-soname,libBlob2PassLib.so -o libBlob2PassLib.so CMakeFiles/Blob2PassLib.dir/blob2pass.cc.o 

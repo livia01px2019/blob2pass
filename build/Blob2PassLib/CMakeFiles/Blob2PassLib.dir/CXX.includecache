@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/livia/Documents/roborock/blob2pass/Blob2PassLib/blob2pass.cc
+blob2pass.hh
+/home/livia/Documents/roborock/blob2pass/Blob2PassLib/blob2pass.hh
+
+/home/livia/Documents/roborock/blob2pass/Blob2PassLib/blob2pass.hh
+

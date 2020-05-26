@@ -1,1 +1,1 @@
-/usr/bin/c++   -g   CMakeFiles/Blob2Pass.dir/execute.cc.o  -o Blob2Pass 
+/usr/bin/c++   -g   CMakeFiles/Blob2Pass.dir/execute.cc.o  -o Blob2Pass Blob2PassLib/libBlob2PassLib.so -Wl,-rpath,/home/livia/Documents/roborock/blob2pass/build/Blob2PassLib 

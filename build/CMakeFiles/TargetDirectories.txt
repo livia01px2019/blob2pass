@@ -1,3 +1,6 @@
 /home/livia/Documents/roborock/blob2pass/build/CMakeFiles/rebuild_cache.dir
 /home/livia/Documents/roborock/blob2pass/build/CMakeFiles/edit_cache.dir
 /home/livia/Documents/roborock/blob2pass/build/CMakeFiles/Blob2Pass.dir
+/home/livia/Documents/roborock/blob2pass/build/Blob2PassLib/CMakeFiles/rebuild_cache.dir
+/home/livia/Documents/roborock/blob2pass/build/Blob2PassLib/CMakeFiles/edit_cache.dir
+/home/livia/Documents/roborock/blob2pass/build/Blob2PassLib/CMakeFiles/Blob2PassLib.dir
