@@ -31,11 +31,11 @@ int main(int argc, char *argv[])
     int time = clock_gettime(CLOCK_MONOTONIC,&ts);
     printf("time before: %ld, %ld \n", ts.tv_sec, ts.tv_nsec);
 
-    // while(true) {
-        // int ** blobImg = blob2pass(img, w, h);
-        // free_labelmap();
-    //     usleep(20000);
-    // }
+    while(true) {
+        int ** blobImg = blob2pass(img, w, h);
+        free_labelmap();
+        usleep(20000);
+    }
 
     int ** blobImg = blob2pass(img, w, h);
 
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 
     // printf("\nBLOB IMAGE: \n");
     // printImg(blobImg, w, h);
-    free_labelmap();
+    // free_labelmap();
 
     return 0;
 }
