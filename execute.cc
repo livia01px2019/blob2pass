@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     for (int i = 0; i < h; i ++) {
         img[i] = new int[w];
         for (int j = 0; j < w; j++) {
-            int randInt = rand() % 3;
+            int randInt = rand() % 2;
             if (randInt < 1) {
                 img[i][j] = 1;
             } else {
@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
 
     int time = clock_gettime(CLOCK_MONOTONIC,&ts);
     printf("time before: %ld, %ld \n", ts.tv_sec, ts.tv_nsec);
+    long difference = ts.tv_nsec;
 
     while(true) {
         int ** blobImg = blob2pass(img, w, h);
@@ -37,10 +38,11 @@ int main(int argc, char *argv[])
         usleep(20000);
     }
 
-    int ** blobImg = blob2pass(img, w, h);
-
     time = clock_gettime(CLOCK_MONOTONIC,&ts);
     printf("time after: %ld, %ld \n", ts.tv_sec, ts.tv_nsec);
+
+    difference = ts.tv_nsec - difference;
+    printf("difference in ns: %ld \n", difference);
 
     // printf("\nBLOB IMAGE: \n");
     // printImg(blobImg, w, h);

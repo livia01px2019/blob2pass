@@ -1,8 +1,14 @@
+set(CMAKE_CXX_COMPILER "/usr/bin/arm-linux-gnueabi-g++")
+
 project(Blob2PassLib)
 
 set(CMAKE_BUILD_TYPE "Debug")
 
-add_library(Blob2PassLib SHARED 
+# add_library(Blob2PassLib SHARED
+#     blob2pass.cc
+# )
+
+add_library(Blob2PassLib
     blob2pass.cc
 )
 

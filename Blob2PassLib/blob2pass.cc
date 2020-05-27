@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include "blob2pass.hh"
 
+struct timespec ts;
+
 int* uf = 0;
 int** labelmap = 0;
 int height;
